@@ -24,6 +24,8 @@ class IdleState : ControlState
         if (Input.GetKey(KeyCode.LeftShift))
             return new CrouchState();
 
+        if (Input.GetMouseButtonDown(0))
+            return new FireState();
         if (Input.GetMouseButtonDown(1))
             return new InteractState();
         return this;
@@ -120,7 +122,15 @@ class CrouchRunState : ControlState
         return new CrouchState();
     }
 }
-
+class FireState : ControlState
+{
+    public override ControlState Handle()
+    {
+        if (Input.GetMouseButton(0))
+            return new FireState();
+        return new IdleState();
+    }
+}
 class InteractState : ControlState
 {
     public override ControlState Handle()

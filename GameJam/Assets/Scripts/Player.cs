@@ -7,8 +7,9 @@ public class Player : MonoBehaviour, IDamagable
     [SerializeField]
     private int mHealth;
     [SerializeField]
-    private int mVaildDistance = 400;
+    public int mAccessibleDist = 3;
     public LayerMask mTargetMask;
+    public Transform mTarget;
     public int Health
     {
         get
@@ -41,20 +42,23 @@ public class Player : MonoBehaviour, IDamagable
 
     public void Interact()
     {
-        Collider[] collider = Physics.OverlapSphere(transform.localPosition, mVaildDistance, mTargetMask);
-        if (collider.Length == 0) return;
-        Transform nearestObject = null;
-        float minimumDist = float.MaxValue;
-        for (int i = 0; i < collider.Length; i++)
+        if (mTarget)
+            Disconnect();
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, 100, mTargetMask))
         {
-            float dist = Vector3.Distance(transform.position, collider[i].transform.position);
-            if (minimumDist > dist)
+            if(Vector3.Distance(transform.position, hit.transform.position) < mAccessibleDist)
             {
-                minimumDist = dist;
-                nearestObject = collider[i].transform;
+                hit.transform.GetComponent<Environment>().Interact(this.transform);
+                mTarget = hit.transform;
             }
         }
+    }
 
-        nearestObject?.transform.GetComponent<Environment>().Interact(this.transform);
+    public void Disconnect()
+    {
+        mTarget.GetComponent<Environment>().Disconnect();
+        mTarget = null;
     }
 }
