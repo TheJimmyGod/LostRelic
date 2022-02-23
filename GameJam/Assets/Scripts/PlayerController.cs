@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private ControlState mState;
-    private CharacterController mCharacterController;
+    public CharacterController mCharacterController;
     private Vector3 mVelocity = Vector3.zero;
     private bool isGrounded = true;
 
@@ -46,7 +46,8 @@ public class PlayerController : MonoBehaviour
 
         if (mState.ToString() == "InteractState")
             mPlayer.Interact();
-
+        if (mState.ToString() == "FireState")
+            return;
         isGrounded = Physics.CheckSphere(mGroundCheck.position, mGroundDistance, mGroundMask);
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
@@ -54,7 +55,8 @@ public class PlayerController : MonoBehaviour
 
         mSpeed = ((isGrounded) && (mState.ToString() == "CrouchState" 
             || mState.ToString() == "CrouchRunState" || mState.ToString() == "MoveObjectState")) ? mCrouchSpeed : mRunSpeed;
-        if(direction.magnitude > 0.1f)
+
+        if (direction.magnitude > 0.1f)
         {
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + mCamera.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y,targetAngle,ref mTrunSmoothVelocity,mTurnSmooth);
@@ -63,7 +65,6 @@ public class PlayerController : MonoBehaviour
             Vector3 moveDirection = Quaternion.Euler(0.0f, targetAngle, 0.0f) * Vector3.forward;
             mCharacterController.Move(moveDirection.normalized * mSpeed * Time.deltaTime);
         }
-
 
         switch (mState.ToString())
         {
@@ -86,7 +87,6 @@ public class PlayerController : MonoBehaviour
             default:
                 break;
         }
-
         mVelocity.y += mGravity * Time.deltaTime;
         mCharacterController.Move(mVelocity * Time.deltaTime);
     }

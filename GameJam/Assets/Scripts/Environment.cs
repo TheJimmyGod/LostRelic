@@ -8,9 +8,8 @@ public class Environment : MonoBehaviour
     protected float mDestroyTime = 5.0f;
     [SerializeField]
     protected int mHealth = 0;
-    protected int mVaildDistance = 10;
     public Transform mTarget = null;
-
+    public bool mCoolTime = false;
 
     void Start() => OnStart();
     void Update() => OnUpdate();
@@ -29,4 +28,5 @@ public class Environment : MonoBehaviour
 
     public virtual void Interact(Transform player) { mTarget = player; }
     public void DestoryObject() { Destroy(gameObject, mDestroyTime); }
+    public void Disconnect() { mTarget = null; }
 }
