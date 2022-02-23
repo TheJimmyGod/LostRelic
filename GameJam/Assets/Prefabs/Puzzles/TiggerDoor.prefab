@@ -121,11 +121,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5857315229013190002}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.91, y: -0.004999876, z: -6.2}
+  m_LocalPosition: {x: 1.9100001, y: -0.0050001144, z: -6.2}
   m_LocalScale: {x: 1, y: 0.10296, z: 1}
   m_Children: []
   m_Father: {fileID: 5857315229614546132}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5857315229013190005
 MeshFilter:
@@ -214,7 +214,7 @@ GameObject:
   - component: {fileID: 5857315229614546132}
   - component: {fileID: 5857315229614546139}
   m_Layer: 0
-  m_Name: Puzzle1
+  m_Name: TiggerDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -231,8 +231,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 5857315229634652784}
   - {fileID: 5857315229013190001}
+  - {fileID: 5857315229634652784}
   - {fileID: 5857315228851268096}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -283,11 +283,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5857315229634652748}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.71, y: -0.004999876, z: -6.2}
+  m_LocalPosition: {x: -2.7100003, y: -0.0050001144, z: -6.2}
   m_LocalScale: {x: 1, y: 0.10296, z: 1}
   m_Children: []
   m_Father: {fileID: 5857315229614546132}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5857315229634652785
 MeshFilter:
