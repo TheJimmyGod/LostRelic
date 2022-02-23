@@ -24,7 +24,7 @@ public class Tigger : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         isActive = true;
     }

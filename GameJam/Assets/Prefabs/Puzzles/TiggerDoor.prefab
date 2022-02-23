@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 5857315229013190007}
   - component: {fileID: 5857315229013190000}
   m_Layer: 0
-  m_Name: Button (1)
+  m_Name: Button2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -153,7 +153,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a63ce20f8fe24aa4e82c9e9b3d036e2e, type: 2}
+  - {fileID: 2100000, guid: fd14b1c379208754d8d1a22faae2f57b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 0
-  mMaterial: {fileID: 2100000, guid: a63ce20f8fe24aa4e82c9e9b3d036e2e, type: 2}
+  mMaterial: {fileID: 2100000, guid: fd14b1c379208754d8d1a22faae2f57b, type: 2}
   mColorsActive: {r: 0, g: 0.80362797, b: 1, a: 0}
   mColorsNoneActive: {r: 1, g: 0, b: 0, a: 0}
 --- !u!1 &5857315229614546133
@@ -254,7 +254,7 @@ MonoBehaviour:
   setHight: 9
   tiggers:
   - {fileID: 5857315229634652748}
-  - {fileID: 5857315229634652748}
+  - {fileID: 5857315229013190002}
 --- !u!1 &5857315229634652748
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 5857315229634652787}
   - component: {fileID: 5857315229634652791}
   m_Layer: 0
-  m_Name: Button
+  m_Name: Button1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
