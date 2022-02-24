@@ -51,7 +51,6 @@ class JumpState : ControlState
 {
     public override ControlState Handle()
     {
-        Debug.Log("Jump");
         return this;
     }
 }
