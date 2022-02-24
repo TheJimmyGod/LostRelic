@@ -11,16 +11,30 @@ public class Tigger : MonoBehaviour
     public Color mColorsActive;
     [SerializeField]
     public Color mColorsNoneActive;
+    [SerializeField]
+    public GameObject MovePlatform;
+
+    private void Awake()
+    {
+        mMaterial.color = mColorsNoneActive;
+    }
 
     private void Update()
     {
         if (isActive)
         {
             mMaterial.color = mColorsActive;
+            if (MovePlatform != null)
+            {
+                MovePlatform.GetComponent<MovePlatform>().SetisAutomaticMoving();
+            }
         }
         else
         {
-            mMaterial.color = mColorsNoneActive;
+            if (MovePlatform == null)
+            {
+                mMaterial.color = mColorsNoneActive;
+            }
         }
     }
 
