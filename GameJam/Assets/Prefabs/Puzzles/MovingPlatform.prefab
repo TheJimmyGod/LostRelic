@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5614322600223405961}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EndPositon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5614322600223405966}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 35.04, y: 0, z: -40.42}
+  m_LocalPosition: {x: -18.1, y: 0, z: -9.641}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5614322600637084015}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5614322600284668197}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StartPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5614322600637084015}
   - component: {fileID: 5614322600637084014}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MovingPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitTime: 0
-  moveSpeed: 10
+  moveSpeed: 3
   movingPlatform: {fileID: 5614322600945522077}
   startTransform: {fileID: 5614322600284668197}
   endTransform: {fileID: 5614322600223405961}
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 5614322600945522073}
   - component: {fileID: 5569323026397646763}
   - component: {fileID: 1352847257347040220}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
