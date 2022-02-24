@@ -10,16 +10,18 @@ public class Button : MonoBehaviour
     [SerializeField]
     private float doorSpeed;
     [SerializeField]
-    private float setHight;
+    private Transform endTransform;
     private float maxHight = 0;
     private float tiggerCount = 0;
+    private Vector3 targetPosition;
+    private Vector3 startPosition;
 
     [SerializeField]
     private GameObject[] tiggers;
 
     private void Awake()
     {
-        maxHight = setHight + door.transform.position.y;
+        startPosition = door.transform.position;
     }
 
     private void Update()
@@ -47,9 +49,24 @@ public class Button : MonoBehaviour
         }
 
         //Open door
-        if (doorIsOpening && door.transform.position.y < maxHight)
+        if (doorIsOpening && door.transform.position != endTransform.position)
         {
-            door.transform.Translate(Vector3.up * Time.deltaTime * doorSpeed);
+            MoveDoor(endTransform.position);
         }
+        else if(!doorIsOpening && door.transform.position != startPosition)
+        {
+            MoveDoor(startPosition);
+        }
+    }
+
+    void MoveDoor(Vector3 targetPosition)
+    {
+        Vector3 heading = targetPosition - door.transform.position;
+        door.transform.position += (heading / heading.magnitude) * doorSpeed * Time.deltaTime;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        doorIsOpening = false;
     }
 }
