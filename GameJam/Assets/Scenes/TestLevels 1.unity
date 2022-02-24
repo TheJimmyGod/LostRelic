@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 6254632}
   - component: {fileID: 6254631}
   - component: {fileID: 6254630}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 11292987}
   - component: {fileID: 11292986}
   - component: {fileID: 11292985}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -412,7 +412,7 @@ GameObject:
   - component: {fileID: 138720130}
   - component: {fileID: 138720129}
   - component: {fileID: 138720128}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -598,7 +598,7 @@ GameObject:
   - component: {fileID: 289121623}
   - component: {fileID: 289121622}
   - component: {fileID: 289121621}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -689,58 +689,34 @@ PrefabInstance:
     - target: {fileID: 3720866465231498294, guid: ccb8fd1dd7564c84d93b6c6617905673,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000008560947
+
+      value: 0.000000008560945
       objectReference: {fileID: 0}
     - target: {fileID: 3720866465231498294, guid: ccb8fd1dd7564c84d93b6c6617905673,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 8.5152807e-10
+      value: -8.515279e-10
       objectReference: {fileID: 0}
     - target: {fileID: 3720866465412651509, guid: ccb8fd1dd7564c84d93b6c6617905673,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.1350594
+      value: 0.13505942
       objectReference: {fileID: 0}
     - target: {fileID: 3720866465412651509, guid: ccb8fd1dd7564c84d93b6c6617905673,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000001476463
+      value: 8.719026e-16
       objectReference: {fileID: 0}
     - target: {fileID: 3720866465412651509, guid: ccb8fd1dd7564c84d93b6c6617905673,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000020125421
-      objectReference: {fileID: 0}
-    - target: {fileID: 3720866465503100026, guid: ccb8fd1dd7564c84d93b6c6617905673,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9929098
-      objectReference: {fileID: 0}
-    - target: {fileID: 3720866465503100026, guid: ccb8fd1dd7564c84d93b6c6617905673,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.11885587
-      objectReference: {fileID: 0}
-    - target: {fileID: 3720866465503100026, guid: ccb8fd1dd7564c84d93b6c6617905673,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.0018490877
-      objectReference: {fileID: 0}
-    - target: {fileID: 3720866465503100026, guid: ccb8fd1dd7564c84d93b6c6617905673,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.0002213443
+      value: -1.7869098e-17
       objectReference: {fileID: 0}
     - target: {fileID: 3720866466530219331, guid: ccb8fd1dd7564c84d93b6c6617905673,
         type: 3}
       propertyPath: mCamera
       value: 
       objectReference: {fileID: 1977209486}
-    - target: {fileID: 3720866466530219331, guid: ccb8fd1dd7564c84d93b6c6617905673,
-        type: 3}
-      propertyPath: mCharacterController
-      value: 
-      objectReference: {fileID: 1216717489}
     - target: {fileID: 9177748822211852308, guid: ccb8fd1dd7564c84d93b6c6617905673,
         type: 3}
       propertyPath: m_RootOrder
@@ -890,7 +866,7 @@ GameObject:
   - component: {fileID: 434007561}
   - component: {fileID: 434007560}
   - component: {fileID: 434007559}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -983,7 +959,7 @@ GameObject:
   - component: {fileID: 686704104}
   - component: {fileID: 686704103}
   - component: {fileID: 686704102}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (21)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1296,7 +1272,7 @@ GameObject:
   - component: {fileID: 963494749}
   - component: {fileID: 963494748}
   - component: {fileID: 963494747}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1516,7 +1492,7 @@ GameObject:
   - component: {fileID: 1003483752}
   - component: {fileID: 1003483751}
   - component: {fileID: 1003483750}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2080,7 +2056,7 @@ GameObject:
   - component: {fileID: 1380552737}
   - component: {fileID: 1380552736}
   - component: {fileID: 1380552735}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2393,7 +2369,7 @@ GameObject:
   - component: {fileID: 1635629544}
   - component: {fileID: 1635629543}
   - component: {fileID: 1635629542}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2486,7 +2462,7 @@ GameObject:
   - component: {fileID: 1683937053}
   - component: {fileID: 1683937052}
   - component: {fileID: 1683937051}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2579,7 +2555,7 @@ GameObject:
   - component: {fileID: 1731754462}
   - component: {fileID: 1731754461}
   - component: {fileID: 1731754460}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2765,7 +2741,7 @@ GameObject:
   - component: {fileID: 1756393060}
   - component: {fileID: 1756393059}
   - component: {fileID: 1756393058}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3208,7 +3184,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1977209481}
-  m_LocalRotation: {x: 0.118855886, y: 0.0018490882, z: -0.00022134894, w: 0.9929098}
+  m_LocalRotation: {x: 0.11885594, y: 0.0015091072, z: -0.0001806487, w: 0.9929104}
   m_LocalPosition: {x: 0, y: 5.5, z: -18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
