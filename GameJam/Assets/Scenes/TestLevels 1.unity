@@ -689,6 +689,7 @@ PrefabInstance:
     - target: {fileID: 3720866465231498294, guid: ccb8fd1dd7564c84d93b6c6617905673,
         type: 3}
       propertyPath: m_LocalRotation.y
+
       value: 0.000000008560945
       objectReference: {fileID: 0}
     - target: {fileID: 3720866465231498294, guid: ccb8fd1dd7564c84d93b6c6617905673,
@@ -2037,6 +2038,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!143 &1216717489 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 3720866466530219329, guid: ccb8fd1dd7564c84d93b6c6617905673,
+    type: 3}
+  m_PrefabInstance: {fileID: 355078298}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1380552734
 GameObject:
   m_ObjectHideFlags: 0
