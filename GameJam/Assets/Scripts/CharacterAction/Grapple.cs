@@ -12,7 +12,7 @@ public class Grapple : MonoBehaviour
     public LayerMask mLayerMask;
     public Transform mPlayer;
     public Transform mStartPos;
-
+    private bool isGrapped = false;
 
     void Awake()
     {
@@ -38,6 +38,7 @@ public class Grapple : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit, mMaxDistance,mLayerMask))
         {
+            isGrapped = true;
             mGrapplePoint = hit.point;
             mSpringJoint = mPlayer.gameObject.AddComponent<SpringJoint>();
             mSpringJoint.autoConfigureConnectedAnchor = false;
@@ -54,8 +55,9 @@ public class Grapple : MonoBehaviour
 
             mLineRenderer.positionCount = 2;
             mPlayer.GetComponent<PlayerController>().mCharacterController.enabled = false;
-            Vector3 dir = (mPlayer.position - mGrapplePoint).normalized;
-            mPlayer.GetComponent<Rigidbody>().AddForce(dir* 10000.0f, ForceMode.Force);
+            Vector3 dir = (mGrapplePoint - mPlayer.position).normalized;
+            dir.y = 0.0f;
+            mPlayer.GetComponent<Rigidbody>().AddForce(dir* 1250.0f, ForceMode.Force);
         }
     }
 
@@ -70,9 +72,22 @@ public class Grapple : MonoBehaviour
 
     private void StopGrapple()
     {
+        if (isGrapped == false)
+            return;
         mLineRenderer.positionCount = 0;
-        mPlayer.GetComponent<PlayerController>().mCharacterController.enabled = true;
+
         Destroy(mSpringJoint);
+        StartCoroutine(DelayedRemoveRigidBody());
+    }
+
+    private IEnumerator DelayedRemoveRigidBody()
+    {
+        mPlayer.GetComponent<Rigidbody>().AddForce(mPlayer.position.normalized * 20.0f, ForceMode.Force);
+        yield return new WaitUntil(() => mPlayer.GetComponent<PlayerController>().isGrounded == true 
+        && mPlayer.GetComponent<Rigidbody>().velocity.y <= 0.0f);
+
+        mPlayer.GetComponent<PlayerController>().mCharacterController.enabled = true;
         Destroy(mPlayer.GetComponent<Rigidbody>());
+        isGrapped = false;
     }
 }

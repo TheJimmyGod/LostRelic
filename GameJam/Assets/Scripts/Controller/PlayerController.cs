@@ -6,8 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     private ControlState mState;
     public CharacterController mCharacterController;
-    private Vector3 mVelocity = Vector3.zero;
-    private bool isGrounded = true;
+    public Vector3 mVelocity = Vector3.zero;
+    public bool isGrounded = true;
 
     [SerializeField]
     private float mRunSpeed = 7.0f;
@@ -48,7 +48,11 @@ public class PlayerController : MonoBehaviour
             mPlayer.Interact();
         if (mState.ToString() == "FireState")
             return;
+
         isGrounded = Physics.CheckSphere(mGroundCheck.position, mGroundDistance, mGroundMask);
+
+        if (mCharacterController.enabled == false)
+            return;
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
         Vector3 direction = new Vector3(x, 0.0f, z).normalized;
@@ -88,6 +92,7 @@ public class PlayerController : MonoBehaviour
                 break;
         }
         mVelocity.y += mGravity * Time.deltaTime;
+
         mCharacterController.Move(mVelocity * Time.deltaTime);
     }
 }
