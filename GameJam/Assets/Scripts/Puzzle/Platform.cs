@@ -6,11 +6,13 @@ public class Platform : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        other.transform.parent = transform;
+        if(other.name == "Player")
+            other.transform.parent = transform;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        other.transform.parent = null;
+        if (other.name == "Player")
+                other.transform.parent = null;
     }
 }
