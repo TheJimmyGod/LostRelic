@@ -34,8 +34,8 @@ public class Button : MonoBehaviour
             }
         }
 
-        Debug.Log(tiggerCount);
-        Debug.Log( tiggers.Length);
+        //Debug.Log(tiggerCount);
+        //Debug.Log( tiggers.Length);
         if (tiggerCount == tiggers.Length)
         {
             doorIsOpening = true;
