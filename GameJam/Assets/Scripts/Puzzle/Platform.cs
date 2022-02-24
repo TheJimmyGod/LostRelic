@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Platform : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if(other.name == "Player")
+        if (other.name == "Player")
             other.transform.parent = transform;
     }
 
