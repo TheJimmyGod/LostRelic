@@ -20,8 +20,6 @@ public class MovePlatform : MonoBehaviour
     private bool isAutomaticMoving;
     private Vector3 targetPosition;
 
-
-
     private void Awake()
     {
         targetPosition = startTransform.position;
@@ -30,6 +28,7 @@ public class MovePlatform : MonoBehaviour
 
     private void Update()
     {
+
         if (movingPlatform.transform.position != targetPosition)
         {
             MovingPlatform();
@@ -75,5 +74,10 @@ public class MovePlatform : MonoBehaviour
             targetPosition = startTransform.position;
         }
 
+    }
+
+    public void SetisAutomaticMoving()
+    {
+        isAutomaticMoving = true;
     }
 }

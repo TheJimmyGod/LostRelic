@@ -26,7 +26,6 @@ public class Button : MonoBehaviour
 
     private void Update()
     {
-       
         //Active 
         for (int i = 0; i < tiggers.Length; ++i)
         {
