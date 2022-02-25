@@ -134,9 +134,7 @@ class InteractState : ControlState
 {
     public override ControlState Handle()
     {
-        if (Input.GetMouseButton(1))
-            return new MoveObjectState();
-        return new IdleState();
+        return new MoveObjectState();
     }
 }
 
@@ -144,8 +142,6 @@ class MoveObjectState : ControlState
 {
     public override ControlState Handle()
     {
-        if (Input.GetMouseButton(1))
-            return new MoveObjectState();
-        return new IdleState();
+        return this;
     }
 }

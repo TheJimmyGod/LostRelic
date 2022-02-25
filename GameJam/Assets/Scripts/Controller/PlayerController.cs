@@ -44,34 +44,64 @@ public class PlayerController : MonoBehaviour
     {
         mState = mState.Handle();
 
-        if (mState.ToString() == "InteractState")
-            mPlayer.Interact();
-        if (mState.ToString() == "FireState")
-            return;
+
+        StateUpdate(ControlUpdate());
+
+    }
+
+    bool ControlUpdate()
+    {
+        if (transform.position.y < -15.0f)
+        {
+            if (transform.GetComponent<Rigidbody>())
+                transform.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            mPlayer.TakeDamage(mPlayer.Health + 1);
+        }
 
         isGrounded = Physics.CheckSphere(mGroundCheck.position, mGroundDistance, mGroundMask);
 
         if (mCharacterController.enabled == false)
-            return;
+            return false;
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
         Vector3 direction = new Vector3(x, 0.0f, z).normalized;
 
-        mSpeed = ((isGrounded) && (mState.ToString() == "CrouchState" 
+        mSpeed = ((isGrounded) && (mState.ToString() == "CrouchState"
             || mState.ToString() == "CrouchRunState" || mState.ToString() == "MoveObjectState")) ? mCrouchSpeed : mRunSpeed;
 
         if (direction.magnitude > 0.1f)
         {
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + mCamera.eulerAngles.y;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y,targetAngle,ref mTrunSmoothVelocity,mTurnSmooth);
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref mTrunSmoothVelocity, mTurnSmooth);
             transform.rotation = Quaternion.Euler(0.0f, angle, 0.0f);
 
             Vector3 moveDirection = Quaternion.Euler(0.0f, targetAngle, 0.0f) * Vector3.forward;
             mCharacterController.Move(moveDirection.normalized * mSpeed * Time.deltaTime);
         }
+        return true;
+    }
 
+    void StateUpdate(bool isEnabled)
+    {
+        if (!isEnabled)
+            return;
         switch (mState.ToString())
         {
+            case "InteractState":
+                {
+                    mPlayer.Interact();
+                }
+                break;
+            case "MoveObjectState":
+                {
+                    if (Input.GetMouseButtonDown(1))
+                        mState = new IdleState();
+                }
+                break;
+            case "FireState":
+                {
+                }
+                break;
             case "JumpState":
                 {
                     mVelocity.y = Mathf.Sqrt(mJumpHeight * -2.0f * mGravity);

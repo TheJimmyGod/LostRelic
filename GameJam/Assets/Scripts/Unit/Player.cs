@@ -7,9 +7,30 @@ public class Player : MonoBehaviour, IDamagable
     [SerializeField]
     private int mHealth;
     [SerializeField]
-    public int mAccessibleDist = 3;
+    public int mAccessibleDist = 5;
     public LayerMask mTargetMask;
     public Transform mTarget;
+
+    public struct WaypointInfo
+    {
+        public WaypointInfo(Vector3 pos, int id)
+        {
+            mCheckPoint = pos;
+            ID = id;
+        }
+        public Vector3 mCheckPoint;
+        public int ID;
+    }
+
+    public WaypointInfo mWaypoint;
+
+    void Start()
+    {
+        mWaypoint = new WaypointInfo();
+        mWaypoint.mCheckPoint = transform.position;
+        mWaypoint.ID = 0;
+    }
+
     public int Health
     {
         get
@@ -32,12 +53,20 @@ public class Player : MonoBehaviour, IDamagable
 
     public void TakeDamage(int dmg)
     {
-        
+        mHealth -= dmg;
+        if(mHealth <= 0)
+        {
+            Rebirth();
+        }
     }
 
-    public void Fire()
+    public void Rebirth()
     {
-
+        if(Death)
+        {
+            mHealth = 100;
+            transform.position = new Vector3(mWaypoint.mCheckPoint.x, mWaypoint.mCheckPoint.y + 2.0f, mWaypoint.mCheckPoint.z);
+        }
     }
 
     public void Interact()

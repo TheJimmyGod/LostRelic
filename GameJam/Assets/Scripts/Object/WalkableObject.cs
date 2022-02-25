@@ -4,33 +4,27 @@ using UnityEngine;
 
 public class WalkableObject : Environment, IDamagable
 {
-    private Rigidbody rigidbody;
-   
+    private new Rigidbody rigidbody;
+    private Vector3 mPos;
 
     protected override void OnStart()
     {
         rigidbody = GetComponent<Rigidbody>();
         rigidbody.isKinematic = true;
+        mPos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
     }
 
     protected override void OnUpdate()
     {
+        if (transform.position.y < -15.0f)
+            transform.position = mPos;
         if (mTarget == null) return;
-        if (Vector3.Distance(mTarget.position, this.transform.position) < mTarget.GetComponent<Player>().mAccessibleDist)
+        if(mTarget.GetComponent<PlayerController>().State.ToString() == "MoveObjectState")
         {
-            if(mTarget.GetComponent<PlayerController>().State.ToString() == "MoveObjectState")
-            {
-                Vector3 dir = transform.position - mTarget.transform.position;
-                dir.y = 0.0f;
-                rigidbody.AddForceAtPosition(dir * Time.deltaTime, transform.position,ForceMode.Force);
-                transform.LookAt(mTarget);
-            }
-        }
-        else
-        {
-            mTarget.GetComponent<Player>().Disconnect();
-            mTarget = null;
-            StartCoroutine(GetKinematic());
+            Vector3 dir = (transform.position - mTarget.transform.position).normalized;
+            dir.y = 0.0f;
+            rigidbody.AddForce(dir * 100.0f * Time.deltaTime, ForceMode.Force);
+            transform.LookAt(mTarget);
         }
     }
     public void TakeDamage(int dmg)
