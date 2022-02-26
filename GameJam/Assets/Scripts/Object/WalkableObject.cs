@@ -22,9 +22,10 @@ public class WalkableObject : Environment, IDamagable
         if(mTarget.GetComponent<PlayerController>().State.ToString() == "MoveObjectState")
         {
             Vector3 dir = (transform.position - mTarget.transform.position).normalized;
-            dir.y = 0.0f;
+            //dir.y = 0.0f;
             rigidbody.AddForce(dir * 100.0f * Time.deltaTime, ForceMode.Force);
             transform.LookAt(mTarget);
+            mTarget.transform.LookAt(transform);
         }
     }
     public void TakeDamage(int dmg)

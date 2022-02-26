@@ -17,11 +17,12 @@ public class Grapple : MonoBehaviour
     public LayerMask mLayerMask;
     public Transform mPlayer;
     public Transform mStartPos;
-    private bool isGrapped = false;
+    public bool isGrapped = false;
 
     void Awake()
     {
         mLineRenderer = GetComponent<LineRenderer>();
+        mLineRenderer.enabled = false;
     }
 
     void Update()
@@ -48,6 +49,7 @@ public class Grapple : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit, mMaxDistance,mLayerMask))
         {
+            mLineRenderer.enabled = true;
             isGrapped = true;
             mGrapplePoint = hit.point;
             mSpringJoint = mPlayer.gameObject.AddComponent<SpringJoint>();
@@ -65,7 +67,6 @@ public class Grapple : MonoBehaviour
 
             mLineRenderer.positionCount = 2;
             mPlayer.GetComponent<PlayerController>().mCharacterController.enabled = false;
-            mPlayer.transform.Find("Cube").GetComponent<BoxCollider>().enabled = false;
             Vector3 dir = (mGrapplePoint - mPlayer.position).normalized;
             dir.y = 0.0f;
             mPlayer.GetComponent<Rigidbody>().AddForce(dir* mPower, ForceMode.Force);
@@ -100,8 +101,7 @@ public class Grapple : MonoBehaviour
         mPlayer.GetComponent<PlayerController>().mCharacterController.enabled = true;
         mPlayer.GetComponent<Rigidbody>().velocity = Vector3.zero;
         Destroy(mPlayer.GetComponent<Rigidbody>());
-        mPlayer.transform.Find("Cube").GetComponent<BoxCollider>().enabled = true;
-
+        mLineRenderer.enabled = false;
         isGrapped = false;
     }
 }
