@@ -110,6 +110,7 @@ MonoBehaviour:
   mMaterial: {fileID: 2100000, guid: a63ce20f8fe24aa4e82c9e9b3d036e2e, type: 2}
   mColorsActive: {r: 0.07075471, g: 0.7789979, b: 1, a: 0}
   mColorsNoneActive: {r: 1, g: 0, b: 0, a: 0}
+  MovePlatform: {fileID: 0}
 --- !u!1 &3458197196797988572
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,7 +123,7 @@ GameObject:
   - component: {fileID: 323955162910643836}
   - component: {fileID: 7351712825979368529}
   m_Layer: 0
-  m_Name: TiggerDoor (2)
+  m_Name: TiggerDoorWith1Tigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -187,7 +188,7 @@ GameObject:
   - component: {fileID: 1361293806480891125}
   - component: {fileID: 2975359810880000343}
   - component: {fileID: 7953677280332203605}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
