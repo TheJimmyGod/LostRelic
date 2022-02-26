@@ -3,7 +3,12 @@ guid: 13cd488c28b862c44af54168d1ef1cd8
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_DungeonCrawler_PropsGrp2_001
+    second: {fileID: 2100000, guid: ed6874b20c10a384f811fe9271b02e2a, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
