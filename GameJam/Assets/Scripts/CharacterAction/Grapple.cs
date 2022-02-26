@@ -6,6 +6,11 @@ public class Grapple : MonoBehaviour
 {
     [SerializeField]
     private float mMaxDistance = 100.0f;
+    [SerializeField]
+    private float mPower = 1000.0f;
+    [SerializeField]
+    private float mCoolTime = 1.5f;
+    private float mCurrentCoolTime = 0.0f;
     private Vector3 mGrapplePoint;
     private LineRenderer mLineRenderer;
     private SpringJoint mSpringJoint;
@@ -21,6 +26,11 @@ public class Grapple : MonoBehaviour
 
     void Update()
     {
+        if(mCurrentCoolTime > 0.0f)
+        {
+            mCurrentCoolTime -= Time.deltaTime;
+            return;
+        }
         if (Input.GetMouseButtonDown(0))
             StartGrapple();
         else if (Input.GetMouseButtonUp(0))
@@ -50,14 +60,15 @@ public class Grapple : MonoBehaviour
             mSpringJoint.minDistance = distFromPoint * 0.25f;
 
             mSpringJoint.spring = 4.5f;
-            mSpringJoint.damper = 7.0f;
-            mSpringJoint.massScale = 4.5f;
+            mSpringJoint.damper = 5.0f;
+            mSpringJoint.massScale = 3.5f;
 
             mLineRenderer.positionCount = 2;
             mPlayer.GetComponent<PlayerController>().mCharacterController.enabled = false;
+            mPlayer.transform.Find("Cube").GetComponent<BoxCollider>().enabled = false;
             Vector3 dir = (mGrapplePoint - mPlayer.position).normalized;
             dir.y = 0.0f;
-            mPlayer.GetComponent<Rigidbody>().AddForce(dir* 1250.0f, ForceMode.Force);
+            mPlayer.GetComponent<Rigidbody>().AddForce(dir* mPower, ForceMode.Force);
         }
     }
 
@@ -75,7 +86,7 @@ public class Grapple : MonoBehaviour
         if (isGrapped == false)
             return;
         mLineRenderer.positionCount = 0;
-
+        mCurrentCoolTime = mCoolTime;
         Destroy(mSpringJoint);
         StartCoroutine(DelayedRemoveRigidBody());
     }
@@ -87,7 +98,10 @@ public class Grapple : MonoBehaviour
         && mPlayer.GetComponent<Rigidbody>().velocity.y <= 0.0f);
 
         mPlayer.GetComponent<PlayerController>().mCharacterController.enabled = true;
+        mPlayer.GetComponent<Rigidbody>().velocity = Vector3.zero;
         Destroy(mPlayer.GetComponent<Rigidbody>());
+        mPlayer.transform.Find("Cube").GetComponent<BoxCollider>().enabled = true;
+
         isGrapped = false;
     }
 }
