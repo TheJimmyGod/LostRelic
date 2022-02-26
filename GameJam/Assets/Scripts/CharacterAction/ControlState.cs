@@ -16,10 +16,10 @@ class IdleState : ControlState
     {
         if (Input.GetKeyDown(KeyCode.Space))
             return new JumpState();
-        if (Input.GetKeyDown(KeyCode.W) ||
-            Input.GetKeyDown(KeyCode.A) ||
-            Input.GetKeyDown(KeyCode.S) ||
-            Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKey(KeyCode.W) ||
+            Input.GetKey(KeyCode.A) ||
+            Input.GetKey(KeyCode.S) ||
+            Input.GetKey(KeyCode.D))
             return new RunState();
         if (Input.GetKey(KeyCode.LeftShift))
             return new CrouchState();
@@ -36,6 +36,8 @@ class RunState : ControlState
 {
     public override ControlState Handle()
     {
+        if (Input.GetMouseButton(0))
+            return new FireState();
         if (Input.GetKeyDown(KeyCode.Space))
             return new JumpState();
         if (Input.GetKey(KeyCode.W) ||
@@ -64,6 +66,8 @@ class LandState : ControlState
         Input.GetKeyDown(KeyCode.S) ||
         Input.GetKeyDown(KeyCode.D))
             return new LandMoveState();
+        if (Input.GetMouseButton(0))
+            return new FireState();
         return this;
     }
 }
@@ -77,6 +81,8 @@ class LandMoveState : ControlState
         Input.GetKey(KeyCode.S) ||
         Input.GetKey(KeyCode.D))
             return this;
+        if (Input.GetMouseButton(0))
+            return new FireState();
         return new LandState();
     }
 }

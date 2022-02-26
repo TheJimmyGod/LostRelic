@@ -7,8 +7,10 @@ public class WayPoint : MonoBehaviour
     private WayPointManager mManager;
     [SerializeField]
     private int id = 0;
+    [SerializeField]
+    private bool isComplete = false;
     public int ID { get { return id; } }
-
+    
     void Start()
     {
         mManager = transform.parent.GetComponent<WayPointManager>();
@@ -18,6 +20,12 @@ public class WayPoint : MonoBehaviour
     {
         if(other.name == "Player")
         {
+            if(isComplete)
+            {
+                StartCoroutine(LevelManager.GoNextLevel());
+                return;
+            }
+
             var comp = other.GetComponent<Player>();
             if (comp.mWaypoint.ID < ID)
             {
