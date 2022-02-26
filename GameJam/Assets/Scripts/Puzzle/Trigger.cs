@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tigger : MonoBehaviour
+public class Trigger : MonoBehaviour
 {
     public bool isActive = false;
     [SerializeField]
