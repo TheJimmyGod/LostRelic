@@ -19,4 +19,5 @@ public class WayPointManager : MonoBehaviour
         mWayPoints.Remove(way);
         Destroy(way.gameObject);
     }
+
 }

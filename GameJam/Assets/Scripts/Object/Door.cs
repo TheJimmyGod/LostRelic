@@ -11,9 +11,11 @@ public class Door : Environment
     public GameObject mDoor;
 
     public List<SpecificButton> mTriggers;
+    public AudioClip mDoorSound;
 
     private bool isOpened = false;
     private bool isComplete = false;
+    private bool isPlayed = false;
     protected override void OnStart()
     {
         mStartPosition = mDoor.transform.position;
@@ -41,11 +43,17 @@ public class Door : Environment
         {
             if(isComplete == false)
             {
+                if (isPlayed == false)
+                {
+                    AudioManager.PlaySfx(mDoorSound,0.85f);
+                    isPlayed = true;
+                }
                 Vector3 heading = (mEndPosition - mDoor.transform.position).normalized;
                 mDoor.transform.position += heading * mSpeed * Time.deltaTime;
                 if(Vector3.Distance(mEndPosition, mDoor.transform.position) < 0.5f )
                 {
                     isComplete = true;
+
                 }
             }
 

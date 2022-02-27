@@ -14,6 +14,9 @@ public class Trigger : MonoBehaviour
     [SerializeField]
     public GameObject MovePlatform;
 
+    public AudioClip ButtonOnClip;
+    public AudioClip ButtonOffClip;
+
     private void Awake()
     {
         mMaterial.color = mColorsNoneActive;
@@ -38,6 +41,10 @@ public class Trigger : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        AudioManager.PlaySfx(ButtonOnClip);
+    }
     private void OnTriggerStay(Collider other)
     {
         isActive = true;
@@ -46,5 +53,6 @@ public class Trigger : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         isActive = false;
+        AudioManager.PlaySfx(ButtonOffClip);
     }
 }

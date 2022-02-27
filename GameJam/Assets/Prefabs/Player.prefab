@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 5, z: -18}
+  m_FollowOffset: {x: 0, y: 7, z: -11}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -152,7 +152,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4196578490255129814}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 5, z: -18}
+  m_LocalPosition: {x: 0, y: 7, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4196578490794369724}
@@ -251,12 +251,12 @@ MonoBehaviour:
   m_BindingMode: 4
   m_SplineCurvature: 0.2
   m_Orbits:
-  - m_Height: 14
-    m_Radius: 12
-  - m_Height: 5
-    m_Radius: 18
+  - m_Height: 9
+    m_Radius: 8
+  - m_Height: 7
+    m_Radius: 11
   - m_Height: -1
-    m_Radius: 12
+    m_Radius: 8
   m_LegacyHeadingBias: 3.4028235e+38
   m_Rigs:
   - {fileID: 4196578490794369715}
@@ -316,7 +316,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4196578490389674624}
-  m_LocalRotation: {x: 0.09897817, y: -0.000000008560947, z: 8.5152807e-10, w: 0.99508965}
+  m_LocalRotation: {x: 0.2445268, y: -0.00000001670132, z: 0.000000004211779, w: 0.9696426}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -424,7 +424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 5, z: -18}
+  m_FollowOffset: {x: 0, y: 7, z: -11}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -516,7 +516,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4196578490794369725}
-  m_LocalRotation: {x: 0.1350594, y: -0.00000001476463, z: 0.0000000020125421, w: 0.9908375}
+  m_LocalRotation: {x: 0.27958766, y: -0, z: -0, w: 0.9601202}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -654,7 +654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 5, z: -18}
+  m_FollowOffset: {x: 0, y: 7, z: -11}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -746,7 +746,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4196578491393012635}
-  m_LocalRotation: {x: 0.118855864, y: 0.0018901492, z: -0.00022625955, w: 0.9929097}
+  m_LocalRotation: {x: 0.26386654, y: 0.0013687708, z: -0.0003744438, w: 0.9645582}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -959,6 +959,7 @@ GameObject:
   - component: {fileID: 4196578491780609996}
   - component: {fileID: 4196578491780609997}
   - component: {fileID: 4196578491780609985}
+  - component: {fileID: 4506530764381050913}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1033,7 +1034,7 @@ MonoBehaviour:
   mCharacterController: {fileID: 0}
   mVelocity: {x: 0, y: 0, z: 0}
   isGrounded: 1
-  mRunSpeed: 7
+  mRunSpeed: 4
   mCrouchSpeed: 2.5
   mGravity: -9.8
   mTurnSmooth: 0.1
@@ -1045,6 +1046,17 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   mGrapple: {fileID: 4196578491590210490}
+  mFootStepCooltime: 0.35
+  mCrouchStepCooltime: 0.6
+  mPullCooltime: 0.75
+  mAudioClips:
+  - {fileID: 8300000, guid: 7e5abc85b0ba79e4983c59d0f7e05c74, type: 3}
+  - {fileID: 8300000, guid: 127d839e43d3c804aa4fbf0e1cfe7a63, type: 3}
+  - {fileID: 8300000, guid: 5f8f44121658dab42a5c5277592f7a72, type: 3}
+  - {fileID: 8300000, guid: d38561a38c5a7c144b82e9e50ec0ce12, type: 3}
+  mDeathClip: {fileID: 8300000, guid: 80144d69c8ce17b4ca9c95e0a7bad293, type: 3}
+  mPullClip: {fileID: 8300000, guid: 0ee7135ce7095cd408a6cef3dd7c19e7, type: 3}
+  mRopeClip: {fileID: 8300000, guid: a60315a044db3c84ba49f1e117af3671, type: 3}
 --- !u!114 &4196578491780609985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1058,6 +1070,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mCamera: {fileID: 4196578490255129814}
+--- !u!65 &4506530764381050913
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4196578491780609998}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.75, z: 1}
+  m_Center: {x: 0, y: 1.15, z: 0}
 --- !u!95 &6403403022084824693
 Animator:
   serializedVersion: 3

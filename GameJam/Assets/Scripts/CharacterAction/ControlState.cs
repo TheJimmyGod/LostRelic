@@ -36,6 +36,8 @@ class RunState : ControlState
 {
     public override ControlState Handle()
     {
+        if (Input.GetKey(KeyCode.LeftShift))
+            return new CrouchState();
         if (Input.GetMouseButton(0))
             return new FireState();
         if (Input.GetKeyDown(KeyCode.Space))
@@ -61,10 +63,10 @@ class LandState : ControlState
 {
     public override ControlState Handle()
     {
-        if (Input.GetKeyDown(KeyCode.W) ||
-        Input.GetKeyDown(KeyCode.A) ||
-        Input.GetKeyDown(KeyCode.S) ||
-        Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKey(KeyCode.W) ||
+        Input.GetKey(KeyCode.A) ||
+        Input.GetKey(KeyCode.S) ||
+        Input.GetKey(KeyCode.D))
             return new LandMoveState();
         if (Input.GetMouseButton(0))
             return new FireState();
@@ -76,13 +78,13 @@ class LandMoveState : ControlState
 {
     public override ControlState Handle()
     {
+        if (Input.GetMouseButton(0))
+            return new FireState();
         if (Input.GetKey(KeyCode.W) ||
         Input.GetKey(KeyCode.A) ||
         Input.GetKey(KeyCode.S) ||
         Input.GetKey(KeyCode.D))
             return this;
-        if (Input.GetMouseButton(0))
-            return new FireState();
         return new LandState();
     }
 }
@@ -92,6 +94,8 @@ class CrouchState : ControlState
 {
     public override ControlState Handle()
     {
+        if (Input.GetMouseButton(0))
+            return new FireState();
         if (Input.GetKeyDown(KeyCode.Space))
             return new JumpState();
         if (Input.GetKey(KeyCode.LeftShift))
@@ -111,9 +115,10 @@ class CrouchState : ControlState
 
 class CrouchRunState : ControlState
 {
-    
     public override ControlState Handle()
     {
+        if (Input.GetMouseButton(0))
+            return new FireState();
         if (Input.GetKeyDown(KeyCode.Space))
             return new JumpState();
         if (Input.GetKey(KeyCode.LeftShift))

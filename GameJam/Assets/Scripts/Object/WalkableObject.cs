@@ -21,11 +21,12 @@ public class WalkableObject : Environment, IDamagable
         if (mTarget == null) return;
         if(mTarget.GetComponent<PlayerController>().State.ToString() == "MoveObjectState")
         {
-            Vector3 dir = (transform.position - mTarget.transform.position).normalized;
-            //dir.y = 0.0f;
-            rigidbody.AddForce(dir * 100.0f * Time.deltaTime, ForceMode.Force);
-            transform.LookAt(mTarget);
-            mTarget.transform.LookAt(transform);
+            if(Vector3.Distance(transform.position, mTarget.position) > 1.75f)
+            {
+                transform.position = Vector3.Lerp(transform.position, mTarget.position, Time.deltaTime * 2.0f);
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(mTarget.position - transform.position), 5.0f * Time.deltaTime);
+            }
+            mTarget.LookAt(transform.position);
         }
     }
     public void TakeDamage(int dmg)
