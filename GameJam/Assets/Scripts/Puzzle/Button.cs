@@ -29,7 +29,7 @@ public class Button : MonoBehaviour
         //Active 
         for (int i = 0; i < tiggers.Length; ++i)
         {
-            if (tiggers[i].GetComponent<Tigger>().isActive)
+            if (tiggers[i].GetComponent<Trigger>().isActive)
             {
                 tiggerCount++;
             }
