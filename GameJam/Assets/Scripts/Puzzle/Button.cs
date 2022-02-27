@@ -11,10 +11,12 @@ public class Button : MonoBehaviour
     private float doorSpeed;
     [SerializeField]
     private Transform endTransform;
-    private float maxHight = 0;
+   
     private float tiggerCount = 0;
     private Vector3 targetPosition;
     private Vector3 startPosition;
+    public AudioClip mDoorSound;
+    private bool isPlayed = false;
 
     [SerializeField]
     private GameObject[] tiggers;
@@ -50,6 +52,11 @@ public class Button : MonoBehaviour
         //Open door
         if (doorIsOpening && door.transform.position != endTransform.position)
         {
+            if(isPlayed == false)
+            {
+                AudioManager.PlaySfx(mDoorSound);
+                isPlayed = true;
+            }
             MoveDoor(endTransform.position);
         }
         else if(!doorIsOpening && door.transform.position != startPosition)
@@ -64,8 +71,8 @@ public class Button : MonoBehaviour
         door.transform.position += (heading / heading.magnitude) * doorSpeed * Time.deltaTime;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        doorIsOpening = false;
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    doorIsOpening = false;
+    //}
 }

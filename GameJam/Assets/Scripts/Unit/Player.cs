@@ -66,6 +66,7 @@ public class Player : MonoBehaviour, IDamagable
         {
             mHealth = 100;
             transform.position = new Vector3(mWaypoint.mCheckPoint.x, mWaypoint.mCheckPoint.y + 2.0f, mWaypoint.mCheckPoint.z);
+            transform.parent = null;
         }
     }
 
@@ -79,6 +80,7 @@ public class Player : MonoBehaviour, IDamagable
         {
             if(Vector3.Distance(transform.position, hit.transform.position) < mAccessibleDist)
             {
+                transform.parent = null;
                 hit.transform.GetComponent<Environment>().Interact(this.transform);
                 mTarget = hit.transform;
             }

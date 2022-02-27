@@ -36,4 +36,10 @@ public class LevelManager : MonoBehaviour
         mInstance.currentBuildIndex++;
         yield return SceneManager.LoadSceneAsync(mInstance.currentBuildIndex);
     }
+
+    public void Exit()
+    {
+        AudioManager.Instance.musicSource.Stop();
+        Application.Quit();
+    }
 }

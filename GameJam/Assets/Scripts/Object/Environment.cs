@@ -26,7 +26,10 @@ public class Environment : MonoBehaviour
         get { return mHealth <= 0; }
     }
 
-    public virtual void Interact(Transform player) { mTarget = player; }
+    public virtual void Interact(Transform player) {
+        transform.parent = null;
+        mTarget = player; 
+    }
     public void DestoryObject() { Destroy(gameObject, mDestroyTime); }
     public void Disconnect() { mTarget = null; }
 }
