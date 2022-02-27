@@ -17,7 +17,10 @@ public class WalkableObject : Environment, IDamagable
     protected override void OnUpdate()
     {
         if (transform.position.y < -15.0f)
+        {
+            transform.parent = null;
             transform.position = mPos;
+        }
         if (mTarget == null) return;
         if(mTarget.GetComponent<PlayerController>().State.ToString() == "MoveObjectState")
         {

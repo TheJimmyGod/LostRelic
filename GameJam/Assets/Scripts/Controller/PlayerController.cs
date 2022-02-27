@@ -64,8 +64,8 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         mState = mState.Handle();
-        if (Input.GetKeyDown(KeyCode.Escape))
-            StartCoroutine(LevelManager.ReturnCurrentLevel());
+        if (Input.GetKeyDown(KeyCode.Q))
+            mPlayer.TakeDamage(mPlayer.Health + 1);
         StateUpdate(ControlUpdate());
 
     }
@@ -273,6 +273,8 @@ public class PlayerController : MonoBehaviour
     {
         if(mState.ToString() == "FireState")
         {
+            if (transform.GetComponent<Rigidbody>())
+                transform.GetComponent<Rigidbody>().velocity = Vector3.zero;
             mGrapple.StopGrapple();
             mState = new IdleState();
         }
