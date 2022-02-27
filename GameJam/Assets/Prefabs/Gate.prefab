@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8727065920117702793}
   - component: {fileID: 8727065920117702794}
   - component: {fileID: 8727065920117702795}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Gate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,3 +115,4 @@ MonoBehaviour:
   mTriggers:
   - {fileID: 0}
   - {fileID: 0}
+  mDoorSound: {fileID: 0}

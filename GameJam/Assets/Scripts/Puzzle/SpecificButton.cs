@@ -14,9 +14,20 @@ public class SpecificButton : MonoBehaviour
     [SerializeField]
     public Color mColorsNoneActive;
 
+    public AudioClip ButtonOnClip;
+    public AudioClip ButtonOffClip;
+
     void Start()
     {
         mMaterial.color = mColorsNoneActive;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.gameObject == mKeyObject)
+        {
+            AudioManager.PlaySfx(ButtonOnClip);
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -34,6 +45,7 @@ public class SpecificButton : MonoBehaviour
         {
             mMaterial.color = mColorsNoneActive;
             isActive = false;
+            AudioManager.PlaySfx(ButtonOffClip);
         }
     }
 }

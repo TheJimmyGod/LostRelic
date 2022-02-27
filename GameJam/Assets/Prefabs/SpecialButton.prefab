@@ -110,3 +110,5 @@ MonoBehaviour:
   mMaterial: {fileID: 2100000, guid: 76f228adf18c04a45a565a8a01dae3a1, type: 2}
   mColorsActive: {r: 0, g: 1, b: 0.10293555, a: 0}
   mColorsNoneActive: {r: 1, g: 1, b: 1, a: 0}
+  ButtonOnClip: {fileID: 8300000, guid: 2652f8658c6b2494da49e6555ba45a38, type: 3}
+  ButtonOffClip: {fileID: 8300000, guid: ab118692565fd2a43a6bf41436f33e81, type: 3}

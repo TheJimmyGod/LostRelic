@@ -351,6 +351,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8727065920117702795, guid: 9288df3c9a004974cb1fd9b7bfc247df,
         type: 3}
+      propertyPath: mDoorSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 56b92a1f438f56d49b97b1229b02fdcf, type: 3}
+    - target: {fileID: 8727065920117702795, guid: 9288df3c9a004974cb1fd9b7bfc247df,
+        type: 3}
       propertyPath: mTriggers.Array.data[0]
       value: 
       objectReference: {fileID: 8737628890249087207}
@@ -418,6 +423,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gate
+      objectReference: {fileID: 0}
+    - target: {fileID: 8727065920117702836, guid: 9288df3c9a004974cb1fd9b7bfc247df,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9288df3c9a004974cb1fd9b7bfc247df, type: 3}

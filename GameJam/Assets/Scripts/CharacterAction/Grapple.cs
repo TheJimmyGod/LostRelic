@@ -82,7 +82,7 @@ public class Grapple : MonoBehaviour
         mLineRenderer.SetPosition(1, mGrapplePoint);
     }
 
-    private void StopGrapple()
+    public void StopGrapple()
     {
         if (isGrapped == false)
             return;
@@ -95,9 +95,10 @@ public class Grapple : MonoBehaviour
     private IEnumerator DelayedRemoveRigidBody()
     {
         mPlayer.GetComponent<Rigidbody>().AddForce(mPlayer.position.normalized * 20.0f, ForceMode.Force);
+        mPlayer.GetComponent<PlayerController>().State = new LandState();
         yield return new WaitUntil(() => mPlayer.GetComponent<PlayerController>().isGrounded == true 
         && mPlayer.GetComponent<Rigidbody>().velocity.y <= 0.0f);
-
+       
         mPlayer.GetComponent<PlayerController>().mCharacterController.enabled = true;
         mPlayer.GetComponent<Rigidbody>().velocity = Vector3.zero;
         Destroy(mPlayer.GetComponent<Rigidbody>());

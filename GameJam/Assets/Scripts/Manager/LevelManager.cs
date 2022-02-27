@@ -16,6 +16,12 @@ public class LevelManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    private void Start()
+    {
+        AudioManager.Instance.musicSource.clip = AudioManager.Instance.LevelOne;
+        AudioManager.Instance.musicSource.Play();
+    }
+
     private int currentBuildIndex = 0;
     public static IEnumerator ReturnCurrentLevel()
     {
@@ -24,6 +30,9 @@ public class LevelManager : MonoBehaviour
 
     public static IEnumerator GoNextLevel()
     {
+        AudioManager.Instance.musicSource.Stop();
+        AudioManager.Instance.musicSource.clip = AudioManager.Instance.LevelTwo;
+        AudioManager.Instance.musicSource.Play();
         mInstance.currentBuildIndex++;
         yield return SceneManager.LoadSceneAsync(mInstance.currentBuildIndex);
     }
