@@ -235,6 +235,8 @@ MonoBehaviour:
   mColorsActive: {r: 0, g: 0.80362797, b: 1, a: 0}
   mColorsNoneActive: {r: 1, g: 0, b: 0, a: 0}
   MovePlatform: {fileID: 0}
+  ButtonOnClip: {fileID: 8300000, guid: 2652f8658c6b2494da49e6555ba45a38, type: 3}
+  ButtonOffClip: {fileID: 8300000, guid: ab118692565fd2a43a6bf41436f33e81, type: 3}
 --- !u!1 &5857315229614546133
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,6 +415,8 @@ MonoBehaviour:
   mColorsActive: {r: 0.07075471, g: 0.7789979, b: 1, a: 0}
   mColorsNoneActive: {r: 1, g: 0, b: 0, a: 0}
   MovePlatform: {fileID: 0}
+  ButtonOnClip: {fileID: 8300000, guid: 2652f8658c6b2494da49e6555ba45a38, type: 3}
+  ButtonOffClip: {fileID: 8300000, guid: ab118692565fd2a43a6bf41436f33e81, type: 3}
 --- !u!1001 &7073259379132865600
 PrefabInstance:
   m_ObjectHideFlags: 0
